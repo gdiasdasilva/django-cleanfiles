@@ -32,3 +32,5 @@ What you see above is an example but you need to guarantee that the app is insta
 To execute this command you have to insert a **path** (relative or absolute) after the command as an argument that represents the destination folder.
 
 For example `./manage.py cleanfiles filestodelete` will create a folder (if it doesn't exist yet) named "filestodelete" in the project's root directory. After that, all unused files will be moved into there.
+
+If you get *permission denied* errors, don't forget to **sudo** your command.
