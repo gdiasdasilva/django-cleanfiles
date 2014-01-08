@@ -64,8 +64,8 @@ def subtract_sets(a,b):
 class Command(NoArgsCommand):
     help = "This command moves not DB referenced files to a specific folder whose path is given in argument."
     def handle(self, *args, **options):
-	if len(args) == 0:
-	    print "Please specify a valid path (ending with /)."
+	if len(args) != 1:
+	    print "Invalid arguments. Please specify a destination path."
 	else:
 	    copy_files_to_folder(args[0])
 	    print "Files moved sucessfully."
