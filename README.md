@@ -1,6 +1,8 @@
 # django-cleanfiles
 
-django-cleanfiles automatically moves unreferenced files in the database to a specified folder in order to make clean up easier. This folder works like a recycle bin for the unused files, this means that the files won't be deleted from there if the user doesn't do it.
+django-cleanfiles moves unreferenced files in the database to a specified folder in order to make clean up easier. This folder works like a recycle bin for the unused files, this means that the files won't be deleted from there if the user doesn't do it.
+
+The search for the unused files is done by iterating the models that have a *FileField* field and then comparing those files from the database to the files in the corresponding file's folder. The unused files are the ones that exist in some folder but aren't referenced in any *FileField*.
 
 ## Installation and configuration
 
