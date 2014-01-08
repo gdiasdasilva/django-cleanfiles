@@ -14,4 +14,4 @@ To be able to execute the django custom command `cleanfiles`, after you set the 
 
 To execute this command you have to insert a **path** (relative or absolute) after the command as an argument that represents the destination folder.
 
-For example `./manage.py cleanfiles filestodelete` will create a folder (if it doesn't exists yet) named "filestodelete" in the project's root directory. After that, all unused files will be moved into there.
+For example `./manage.py cleanfiles filestodelete` will create a folder (if it doesn't exist yet) named "filestodelete" in the project's root directory. After that, all unused files will be moved into there.
