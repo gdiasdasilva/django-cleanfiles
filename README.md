@@ -8,9 +8,24 @@ The command creates corresponding file's folder in the destination folder, so it
 
 ## Installation and configuration
 
-After uncompressing the downloaded zip file, you need to change the app's root folder name from *django-cleanfiles-master* to something like *django_cleanfiles*, because Django doesn't accept anything but alphabet characters and underscores in app names.
+To be able to execute the command `cleanfiles`, after you set the app files in your project's root, you need to add the app to the **INSTALLED_APPS** list in `settings.py`.
 
-To be able to execute the django custom command `cleanfiles`, after you set the app files in your project's root, you need to add the app to the **INSTALLED_APPS** list in `settings.py`.
+The overall structure needs to be something like this:
+
+    project/
+        __init__.py
+        models.py
+        django_cleanfiles/
+            management/
+                __init__.py
+                commands/
+                    __init__.py
+                    cleanfiles.py
+        tests.py
+        views.py
+        (...)
+
+What you see above is an example but you need to guarantee that the app is installed in the project's root directory, with the `management` folder inside it and the `commands` folder inside the last one.
 
 ## How to use
 
