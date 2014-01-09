@@ -1,6 +1,6 @@
 # django-cleanfiles
 
-The *django-cleanfiles* app allows you to run a [manage.py](https://docs.djangoproject.com/en/dev/howto/custom-management-commands/) command `cleanfiles` that moves unused files to a specified destination folder in order to make clean up easier. This folder works like a recycle bin for the files, this means that the files won't be deleted from there if the user doesn't delete them afterwards.
+The *django-cleanfiles* app allows you to run a [manage.py](https://docs.djangoproject.com/en/dev/howto/custom-management-commands/) command `cleanfiles` that moves unused files to a specified destination folder in order to make clean up easier. This folder works like a recycle bin for the files, which means that the files won't be deleted from the folder if the user doesn't delete them afterwards.
 
 The search for the unused files is done by iterating the models that have a *FileField* field and then comparing those referenciations with the files that exist in the media directories. The unused files are the ones that exist in some folder but aren't referenced in any *FileField* field.
 
