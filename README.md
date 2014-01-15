@@ -21,6 +21,8 @@ The overall structure needs to be something like this:
                 commands/
                     __init__.py
                     cleanfiles.py
+        another_app/
+            ...
         tests.py
         views.py
         (...)
