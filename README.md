@@ -29,10 +29,14 @@ What you see above is an example but you need to guarantee that the app is insta
 
 ## How to use
 
+`./manage.py cleanfiles [path] [options]`
+
 To execute this command you have to insert a **path** (relative or absolute) after the command as an argument that represents the destination folder.
 
 For example `./manage.py cleanfiles filestodelete` will create a folder (if it doesn't exist yet) named "filestodelete" in the project's root directory. After that, all unused files will be moved into there.
 
-This command allows you to directly delete the unused files, adding `rm` after the destination path, like this: `./manage.py cleanfiles filestodelete rm`. The previous command will execute as the first one with the difference that will delete this folder after the moving process. This is not done immediately to ensure that no important data is deleted.
+At this point, there is only one available option, `rm`, that will flag the script so it deletes all the content in the destination folder after process of moving. You can do it like this: `./manage.py cleanfiles filestodelete rm`. The deletion is not done immediately to ensure that no important data is deleted.
+
+---
 
 If you get *permission denied* errors, don't forget to **sudo** your command.
