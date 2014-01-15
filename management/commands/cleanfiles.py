@@ -35,16 +35,17 @@ def find_files_in_model():
     return files_to_delete
 
 # Function that copies the files to the specified path
-def copy_files_to_folder(path):
+def copy_files_to_folder(path, flag):
     files_to_delete_path = path
     files = find_files_in_model()
     for f in files:
 	tmp = settings.MEDIA_ROOT + '/' + f
-#	destination_path = files_to_delete_path + os.path.split(f)[0]
 	destination_path = os.path.join(files_to_delete_path, os.path.split(f)[0])
 	if (not os.path.exists(destination_path)):
 	    os.makedirs(destination_path)
        	shutil.copy2(tmp, destination_path)
+    if flag == 1:
+        shutil.rmtree(files_to_delete_path)
 
 # Returns a list with all files in a directory - path
 def find_files_in_directory(path):
@@ -64,8 +65,15 @@ def subtract_sets(a,b):
 class Command(NoArgsCommand):
     help = "This command moves not DB referenced files to a specific folder whose path is given in argument."
     def handle(self, *args, **options):
-	if len(args) != 1:
-	    print "Invalid arguments. Please specify a destination path."
+	if len(args) == 1:
+	    copy_files_to_folder(args[0], 0)
+	    print "Files moved successfully."
+	elif len(args) == 2:
+	    if args[1] == "rm":
+	        copy_files_to_folder(args[0], 1)
+	        print "Content deleted successfully."
+	    else:
+		print "Invalid option in second parameter."
 	else:
-	    copy_files_to_folder(args[0])
-	    print "Files moved sucessfully."
+	    print "Invalid arguments. | ./manage.py cleanfiles [path] [options]"
+
