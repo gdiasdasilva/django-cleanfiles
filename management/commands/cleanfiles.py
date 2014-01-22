@@ -43,9 +43,7 @@ def copy_files_to_folder(path, flag):
 	destination_path = os.path.join(files_to_delete_path, os.path.split(f)[0])
 	if (not os.path.exists(destination_path)):
 	    os.makedirs(destination_path)
-       	shutil.copy2(tmp, destination_path)
-	# Line to change when all testing is done
-	#shutil.move(tmp, destination_path)
+	shutil.move(tmp, destination_path)
     if flag == 1:
         shutil.rmtree(files_to_delete_path)
 
