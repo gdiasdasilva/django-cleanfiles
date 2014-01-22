@@ -65,7 +65,7 @@ def subtract_sets(a,b):
 
 # Create the command in manage.py
 class Command(NoArgsCommand):
-    help = "This command moves not DB referenced files to a specific folder whose path is given in argument."
+    help = "This command moves unused files to a specified destination folder in order to make clean up easier. It's used like ./manage.py cleanfiles [path] [option]. For now, the only available option is 'rm'."
     def handle(self, *args, **options):
 	if len(args) == 1:
 	    copy_files_to_folder(args[0], 0)
@@ -77,5 +77,5 @@ class Command(NoArgsCommand):
 	    else:
 		print "Invalid option in second parameter."
 	else:
-	    print "Invalid arguments. | ./manage.py cleanfiles [path] [options]"
+	    print "Invalid arguments: ./manage.py cleanfiles [path] [option]"
 
